@@ -28,7 +28,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.model-card {
+.feature-card, .stat-card, .testimonial {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 16px;
@@ -37,7 +37,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.model-card:hover {
+.feature-card:hover, .stat-card:hover, .testimonial:hover {
     transform: translateY(-5px);
 }
 
@@ -54,4 +54,67 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+.fixed-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 20;
+}
+
+.fixed-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.fixed-menu li {
+    display: inline;
+}
+
+.fixed-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    position: relative;
+}
+
+.fixed-menu a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #2481cc, #8b5cf6);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.fixed-menu a:hover::after, .fixed-menu a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.btn-primary {
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1e6a9e;
 }
